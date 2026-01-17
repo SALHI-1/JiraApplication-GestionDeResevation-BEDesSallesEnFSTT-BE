@@ -139,6 +139,7 @@ const updateUser = async (req, res) => {
             res.status(404).json({ message: 'User not found' });
         }
     } catch (error) {
+        console.error("Erreur lors de l'update:", error); // Ajoute ceci pour voir l'erreur réelle
         res.status(500).json({ message: error.message });
     }
 };

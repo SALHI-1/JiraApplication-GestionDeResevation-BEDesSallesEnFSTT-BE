@@ -32,9 +32,9 @@ utilisateurSchema.methods.matchPassword = async function (enteredPassword) {
 };
 
 // Encrypt password using bcrypt
-utilisateurSchema.pre('save', async function (next) {
+utilisateurSchema.pre('save', async function () {
     if (!this.isModified('mot_de_passe')) {
-        return next();
+        return;
     }
 
     const salt = await bcrypt.genSalt(10);
